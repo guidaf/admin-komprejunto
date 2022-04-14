@@ -5,7 +5,8 @@ module.exports = function (environment) {
     modulePrefix: 'admin-komprejunto',
     environment,
     rootURL: '/',
-    locationType: 'history',
+    namespace: 'api',
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -29,6 +30,7 @@ module.exports = function (environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.host = 'https://localhost:44300';
   }
 
   if (environment === 'test') {
