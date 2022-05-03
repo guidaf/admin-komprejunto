@@ -1,0 +1,38 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+</head>
+
+<div data-collapse="medium" data-animation="default" data-duration="400" role="banner" class="header-geral">
+  <div class="header-left">
+    <LinkTo @route="index"  aria-current="page" class="w-nav-brand w--current">Kompre Junto</LinkTo>
+  </div>
+    <nav role="navigation" class="header-right {{if this.activeHeader "active" ""}} ">
+
+
+        <LinkTo @route="manufacturers" class="header-item" {{on "click" this.toggleHeader}}>
+            Fornecedores (adm)
+        </LinkTo>
+        <LinkTo @route="products" class="header-item" {{on "click" this.toggleHeader}}>
+            Produtos (adm)
+        </LinkTo>
+        <LinkTo @route="auctions" class="header-item" {{on "click" this.toggleHeader}}>
+            Leilões (adm)
+        </LinkTo>
+        <LinkTo @route="coupons.index" class="header-item" {{on "click" this.toggleHeader}}>
+            Coupons (adm)
+        </LinkTo>
+        <LinkTo @route="orders.manage" class="header-item" {{on "click" this.toggleHeader}}>
+            Pedidos (adm)
+        </LinkTo>
+        {{#if this.session.isAuthenticated}}
+        <a href="" {{on "click" this.invalidateSession}} class="button-first">Logout</a>
+        {{else}}
+        <LinkTo @route="account.login" class="button-first" {{on "click" this.toggleHeader}}>
+            Login
+        </LinkTo>
+        {{/if}}
+    </nav>
+    <div class="w-nav-button" {{on "click" this.toggleHeader}}>
+        <MdIcon @icon="menu" @size=25 @fill="#4d4d4d" @stroke="#4d4d4d"/>
+    </div>
+</div>
